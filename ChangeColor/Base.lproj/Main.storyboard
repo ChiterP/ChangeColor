@@ -69,20 +69,27 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-b8-Ibh">
-                                <rect key="frame" x="139" y="236" width="263" height="106"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1bN-FE-m4p">
-                                        <rect key="frame" x="-2" y="0.0" width="267" height="31"/>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-ev-E8C">
-                                        <rect key="frame" x="-2" y="38" width="267" height="31"/>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S47-ES-Wvo">
-                                        <rect key="frame" x="-2" y="76" width="267" height="31"/>
-                                    </slider>
-                                </subviews>
-                            </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S47-ES-Wvo">
+                                <rect key="frame" x="65" y="370" width="267" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="redColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="h0j-eq-ck8"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-ev-E8C">
+                                <rect key="frame" x="65" y="408" width="267" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="greenColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="9qK-w1-eR1"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1bN-FE-m4p">
+                                <rect key="frame" x="65" y="446" width="267" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="blueColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="5nH-QP-KEP"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,23 +100,16 @@
                             <constraint firstItem="5rX-7S-dKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Hrs-mJ-WL0"/>
                             <constraint firstItem="5rX-7S-dKH" firstAttribute="top" secondItem="ufT-Gv-xQx" secondAttribute="bottom" constant="64" id="PrS-8a-L4I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ufT-Gv-xQx" secondAttribute="trailing" constant="20" id="Vyl-1b-KXj"/>
-                            <constraint firstItem="4ju-b8-Ibh" firstAttribute="leading" secondItem="fhf-EG-exJ" secondAttribute="trailing" constant="24" id="XaJ-lW-Zdz"/>
                             <constraint firstItem="fhf-EG-exJ" firstAttribute="leading" secondItem="5rX-7S-dKH" secondAttribute="trailing" constant="12" id="jX7-b4-o8G"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fhf-EG-exJ" secondAttribute="trailing" constant="299" id="mhM-SE-mz1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ju-b8-Ibh" secondAttribute="trailing" constant="12" id="sPf-2I-dzF"/>
-                            <constraint firstItem="4ju-b8-Ibh" firstAttribute="top" secondItem="ufT-Gv-xQx" secondAttribute="bottom" constant="64" id="u4g-LC-Kbq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blueColorLabel" destination="8wP-p2-jHW" id="ayE-Rn-vQm"/>
-                        <outlet property="blueColorSlider" destination="S47-ES-Wvo" id="o75-aG-P3N"/>
+                        <outlet property="blueColorSlider" destination="1bN-FE-m4p" id="S5t-fi-4fz"/>
                         <outlet property="blueValueColorLabel" destination="3on-Og-uZ3" id="Wgh-J9-bQ2"/>
-                        <outlet property="colorScrennView" destination="ufT-Gv-xQx" id="ryl-U8-Ds4"/>
-                        <outlet property="greenColorLabel" destination="HOd-fv-M0X" id="j4t-6j-ZvC"/>
-                        <outlet property="greenColorSlider" destination="hXT-ev-E8C" id="peX-cL-Z2x"/>
+                        <outlet property="colorScreenView" destination="ufT-Gv-xQx" id="ryl-U8-Ds4"/>
+                        <outlet property="greenColorSlider" destination="hXT-ev-E8C" id="0O6-jn-ATy"/>
                         <outlet property="greenValueColorLabel" destination="lav-mm-cpQ" id="dty-VN-v4a"/>
-                        <outlet property="redColorLabel" destination="ZAa-ZP-hTx" id="6e5-1T-xFN"/>
-                        <outlet property="redColorSlider" destination="1bN-FE-m4p" id="et1-mc-NIV"/>
+                        <outlet property="redColorSlider" destination="S47-ES-Wvo" id="MV1-Hz-COP"/>
                         <outlet property="redValueColorLabel" destination="kZj-Yw-voV" id="Fqp-2y-GC9"/>
                     </connections>
                 </viewController>
