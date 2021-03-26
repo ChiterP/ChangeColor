@@ -23,35 +23,48 @@ class ViewController: UIViewController {
     // MARK: - Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // View
+        colorScreenView.layer.cornerRadius = 10
         
-        redColorSlider.value = 1
-        redColorSlider.minimumValue = 1
-        redColorSlider.maximumValue = 255
+        // Sliders
+        redColorSlider.value = 0
+        redColorSlider.minimumValue = 0
+        redColorSlider.maximumValue = 1
         
-        greenColorSlider.value = 1
-        greenColorSlider.minimumValue = 1
-        greenColorSlider.maximumValue = 255
+        greenColorSlider.value = 0
+        greenColorSlider.minimumValue = 0
+        greenColorSlider.maximumValue = 1
         
-        blueColorSlider.value = 1
-        blueColorSlider.minimumValue = 1
-        blueColorSlider.maximumValue = 255
-        
+        blueColorSlider.value = 0
+        blueColorSlider.minimumValue = 0
+        blueColorSlider.maximumValue = 1
     }
 
+    
+     override func viewWillLayoutSubviews() {
+        colorScreenView.backgroundColor = UIColor.init(
+            red: CGFloat(redColorSlider.value),
+            green: CGFloat(greenColorSlider.value),
+            blue: CGFloat(blueColorSlider.value),
+            alpha: 1)
+    }
 
+    
+    // MARK: - Functions
     @IBAction func redColorSliderAction() {
         redValueColorLabel.text = String(redColorSlider.value)
-        let currenColor = String(redColorSlider.value)
-        greenColorSlider.tintColor = UIColor.init(cgColor: currenColor)
+        redColorSlider.tintColor = .red
     }
     
     
     @IBAction func greenColorSliderAction() {
         greenValueColorLabel.text = String(greenColorSlider.value)
+        greenColorSlider.tintColor = .green
     }
     
     @IBAction func blueColorSliderAction() {
         blueValueColorLabel.text = String(blueColorSlider.value)
+        blueColorSlider.tintColor = .blue
     }
     
 
