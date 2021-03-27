@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - IB Outlets
     @IBOutlet weak var colorScreenView: UIView!
     
     @IBOutlet weak var redValueColorLabel: UILabel!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenColorSlider: UISlider!
     @IBOutlet weak var blueColorSlider: UISlider!
     
-    // MARK: - Life cicle
+    // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // View
@@ -40,7 +40,6 @@ class ViewController: UIViewController {
         blueColorSlider.maximumValue = 1
     }
 
-    
      override func viewWillLayoutSubviews() {
         colorScreenView.backgroundColor = UIColor.init(
             red: CGFloat(redColorSlider.value),
@@ -48,14 +47,12 @@ class ViewController: UIViewController {
             blue: CGFloat(blueColorSlider.value),
             alpha: 1)
     }
-
     
-    // MARK: - Functions
+    // MARK: - IB Action
     @IBAction func redColorSliderAction() {
         redValueColorLabel.text = (String(format: "%.2f", redColorSlider.value))
         redColorSlider.tintColor = .red
     }
-    
     
     @IBAction func greenColorSliderAction() {
         greenValueColorLabel.text = (String(format: "%.2f", greenColorSlider.value))
@@ -66,7 +63,5 @@ class ViewController: UIViewController {
         blueValueColorLabel.text = (String(format: "%.2f", blueColorSlider.value))
         blueColorSlider.tintColor = .blue
     }
-    
-
 }
 
