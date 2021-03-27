@@ -52,18 +52,18 @@ class ViewController: UIViewController {
     
     // MARK: - Functions
     @IBAction func redColorSliderAction() {
-        redValueColorLabel.text = String(redColorSlider.value)
+        redValueColorLabel.text = (String(format: "%.2f", redColorSlider.value))
         redColorSlider.tintColor = .red
     }
     
     
     @IBAction func greenColorSliderAction() {
-        greenValueColorLabel.text = String(greenColorSlider.value)
+        greenValueColorLabel.text = (String(format: "%.2f", greenColorSlider.value))
         greenColorSlider.tintColor = .green
     }
     
     @IBAction func blueColorSliderAction() {
-        blueValueColorLabel.text = String(blueColorSlider.value)
+        blueValueColorLabel.text = (String(format: "%.2f", blueColorSlider.value))
         blueColorSlider.tintColor = .blue
     }
     
