@@ -28,16 +28,11 @@ class ViewController: UIViewController {
         
         // Sliders
         redColorSlider.value = 0
-        redColorSlider.minimumValue = 0
-        redColorSlider.maximumValue = 1
-        
+        redColorSlider.tintColor = .red
         greenColorSlider.value = 0
-        greenColorSlider.minimumValue = 0
-        greenColorSlider.maximumValue = 1
-        
+        greenColorSlider.tintColor = .green
         blueColorSlider.value = 0
-        blueColorSlider.minimumValue = 0
-        blueColorSlider.maximumValue = 1
+        blueColorSlider.tintColor = .blue
     }
 
      override func viewWillLayoutSubviews() {
@@ -45,23 +40,21 @@ class ViewController: UIViewController {
             red: CGFloat(redColorSlider.value),
             green: CGFloat(greenColorSlider.value),
             blue: CGFloat(blueColorSlider.value),
-            alpha: 1)
+            alpha: 1
+        )
     }
     
     // MARK: - IB Action
     @IBAction func redColorSliderAction() {
-        redValueColorLabel.text = (String(format: "%.2f", redColorSlider.value))
-        redColorSlider.tintColor = .red
+        redValueColorLabel.text = String(format: "%.2f", redColorSlider.value)
     }
     
     @IBAction func greenColorSliderAction() {
-        greenValueColorLabel.text = (String(format: "%.2f", greenColorSlider.value))
-        greenColorSlider.tintColor = .green
+        greenValueColorLabel.text = String(format: "%.2f", greenColorSlider.value)
     }
     
     @IBAction func blueColorSliderAction() {
-        blueValueColorLabel.text = (String(format: "%.2f", blueColorSlider.value))
-        blueColorSlider.tintColor = .blue
+        blueValueColorLabel.text = String(format: "%.2f", blueColorSlider.value)
     }
 }
 
