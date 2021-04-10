@@ -7,9 +7,9 @@
 
 import UIKit
 
-//protocol SettingsViewControllerDelegate {
-//    func setNewValues(redValue: Float, greenValue: Float, blueValue: Float)
-//}
+protocol SettingsViewControllerDelegate {
+    func setNewValues(redValue: Float, greenValue: Float, blueValue: Float)
+}
 
 
 class StartViewController: UIViewController {
@@ -22,10 +22,7 @@ class StartViewController: UIViewController {
     // MARK: - Public Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setViewColor()
-        
-         
     }
     
      // MARK: - Navigation
@@ -34,15 +31,29 @@ class StartViewController: UIViewController {
         startVC.inputColorValueBlue = blueValue
         startVC.inputColorValueRed = redValue
         startVC.inputColorValueGreen = greenValue
-        
+        startVC.delegate = self
     }
-
     
     // MARK: - Private Functions
     private func setViewColor() {
         view.backgroundColor = UIColor (red: CGFloat(redValue), green: CGFloat(greenValue), blue: CGFloat(blueValue), alpha: 1)
     }
 }
-
-     // MARK: - Extensions
-
+    // MARK: - Extensions
+extension StartViewController: SettingsViewControllerDelegate {
+    func setNewValues(redValue: Float, greenValue: Float, blueValue: Float) {
+        
+        if redValue != 0 {
+            self.redValue = redValue
+            setViewColor()
+        }
+        if greenValue != 0 {
+            self.greenValue = greenValue
+            setViewColor()
+        }
+        if blueValue != 0 {
+            self.blueValue = blueValue
+            setViewColor()
+        }
+    }
+}

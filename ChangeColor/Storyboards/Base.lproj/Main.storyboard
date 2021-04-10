@@ -74,7 +74,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BBM-qc-jie">
-                                        <rect key="frame" x="58" y="0.0" width="48" height="124"/>
+                                        <rect key="frame" x="58" y="0.0" width="36" height="124"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kZj-Yw-voV">
                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="41.5"/>
@@ -100,22 +100,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="vEq-ZY-eFB">
-                                        <rect key="frame" x="121" y="0.0" width="87" height="124"/>
+                                        <rect key="frame" x="109" y="0.0" width="99" height="124"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S47-ES-Wvo">
-                                                <rect key="frame" x="-2" y="0.0" width="91" height="35"/>
+                                                <rect key="frame" x="-2" y="0.0" width="103" height="35"/>
                                                 <connections>
                                                     <action selector="redColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="h0j-eq-ck8"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1bN-FE-m4p">
-                                                <rect key="frame" x="-2" y="45" width="91" height="35"/>
+                                                <rect key="frame" x="-2" y="45" width="103" height="35"/>
                                                 <connections>
                                                     <action selector="blueColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="5nH-QP-KEP"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hXT-ev-E8C">
-                                                <rect key="frame" x="-2" y="90" width="91" height="35"/>
+                                                <rect key="frame" x="-2" y="90" width="103" height="35"/>
                                                 <connections>
                                                     <action selector="greenColorSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="9qK-w1-eR1"/>
                                                 </connections>
@@ -152,7 +152,7 @@
                                 </constraints>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="DoneButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ens-wl-HAM"/>
+                                    <action selector="doneButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="z3j-r8-v0p"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -165,6 +165,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ufT-Gv-xQx" secondAttribute="trailing" constant="20" id="Vyl-1b-KXj"/>
                             <constraint firstItem="LoM-si-hMW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aEo-el-NbX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LoM-si-hMW" secondAttribute="trailing" constant="20" id="aHy-Us-Zeg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xIP-gq-FAQ" secondAttribute="trailing" constant="141.5" id="jQe-WQ-huZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xIP-gq-FAQ" secondAttribute="bottom" constant="60" id="yFl-pe-qlK"/>
                             <constraint firstItem="ufT-Gv-xQx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zZT-do-HmA"/>
                         </constraints>

@@ -23,11 +23,18 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var redEditTF: UITextField!
     @IBOutlet weak var blueEditTF: UITextField!
     @IBOutlet weak var greenEditTF: UITextField!
- 
-
+    
+    // MARK: - Public Properties
+    var delegate: SettingsViewControllerDelegate!
+    
     var inputColorValueRed: Float!
     var inputColorValueGreen: Float!
-    var inputColorValueBlue: Float!    
+    var inputColorValueBlue: Float!
+    
+    var newRedColor: Float!
+    var newGreenColor: Float!
+    var newBlueColor: Float!
+
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
@@ -48,14 +55,21 @@ class SettingsViewController: UIViewController {
         greenValueColorLabel.text = String(inputColorValueGreen)
         blueValueColorLabel.text = String(inputColorValueBlue)
         
-        
         redEditTF.text = String(inputColorValueRed)
         greenEditTF.text = String(inputColorValueGreen)
         blueEditTF.text = String(inputColorValueBlue)
         
+        redEditTF.delegate = self
+        blueEditTF.delegate = self
+        greenEditTF.delegate = self
     }
 
-     override func viewWillLayoutSubviews() {
+    override func viewWillLayoutSubviews() {
+        setColorView()
+    }
+    
+    // MARK: - Private Methods
+    private func setColorView() {
         colorScreenView.backgroundColor = UIColor(
             red: CGFloat(redColorSlider.value),
             green: CGFloat(greenColorSlider.value),
@@ -64,26 +78,49 @@ class SettingsViewController: UIViewController {
         )
     }
     
-    
     // MARK: - IB Action
     @IBAction func redColorSliderAction() {
         redValueColorLabel.text = String(format: "%.2f", redColorSlider.value)
         redEditTF.text = String(format: "%.2f", redColorSlider.value)
+        newRedColor = Float(redEditTF.text!)
     }
     
     @IBAction func greenColorSliderAction() {
         greenValueColorLabel.text = String(format: "%.2f", greenColorSlider.value)
         greenEditTF.text = String(format: "%.2f", greenColorSlider.value)
+        newGreenColor = Float(greenEditTF.text!)
     }
     
     @IBAction func blueColorSliderAction() {
         blueValueColorLabel.text = String(format: "%.2f", blueColorSlider.value)
         blueEditTF.text = String(format: "%.2f", blueColorSlider.value)
+        newBlueColor = Float(blueEditTF.text!)
     }
     
-    @IBAction func DoneButtonAction(_ sender: Any) {
+    @IBAction func doneButtonAction() {
+        view.endEditing(true)
+        delegate.setNewValues(redValue: newRedColor ?? 0, greenValue: newGreenColor ?? 0, blueValue: newBlueColor ?? 0)
         dismiss(animated: true)
-        
-    }
+        }
 }
 
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let numberValue = Float(newValue) else { return }
+        
+        if textField == redEditTF {
+            newRedColor = numberValue
+            redColorSlider.value = numberValue
+            setColorView()
+        } else if  textField == blueEditTF {
+            newBlueColor = numberValue
+            blueColorSlider.value = numberValue
+            setColorView()
+        } else {
+            newGreenColor = numberValue
+            greenColorSlider.value = numberValue
+            setColorView()
+        }
+    }
+}
