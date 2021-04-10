@@ -31,12 +31,13 @@ class SettingsViewController: UIViewController {
     var inputColorValueGreen: Float!
     var inputColorValueBlue: Float!
     
-    var newRedColor: Float!
-    var newGreenColor: Float!
-    var newBlueColor: Float!
+    // MARK: - Private Properties
+    private var newRedColor: Float!
+    private var newGreenColor: Float!
+    private var newBlueColor: Float!
 
     
-    // MARK: - Life Cycles Methods
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // View
@@ -63,19 +64,9 @@ class SettingsViewController: UIViewController {
         blueEditTF.delegate = self
         greenEditTF.delegate = self
     }
-
+    
     override func viewWillLayoutSubviews() {
         setColorView()
-    }
-    
-    // MARK: - Private Methods
-    private func setColorView() {
-        colorScreenView.backgroundColor = UIColor(
-            red: CGFloat(redColorSlider.value),
-            green: CGFloat(greenColorSlider.value),
-            blue: CGFloat(blueColorSlider.value),
-            alpha: 1
-        )
     }
     
     // MARK: - IB Action
@@ -101,9 +92,20 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
         delegate.setNewValues(redValue: newRedColor ?? 0, greenValue: newGreenColor ?? 0, blueValue: newBlueColor ?? 0)
         dismiss(animated: true)
-        }
+    }
+    
+    // MARK: - Private Methods
+    private func setColorView() {
+        colorScreenView.backgroundColor = UIColor(
+            red: CGFloat(redColorSlider.value),
+            green: CGFloat(greenColorSlider.value),
+            blue: CGFloat(blueColorSlider.value),
+            alpha: 1
+        )
+    }
 }
 
+// MARK: - Extension
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
@@ -122,5 +124,10 @@ extension SettingsViewController: UITextFieldDelegate {
             greenColorSlider.value = numberValue
             setColorView()
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 }
